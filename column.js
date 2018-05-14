@@ -21,6 +21,7 @@ function Column(id, name) {
 $columnAddCard.click(function(event) {
 	var cardName = prompt("Enter the name of the card");
 	event.preventDefault();
+	self.createCard(new Card(cardName));
 	$.ajax({
     url: baseUrl + '/card',
     method: 'POST',
@@ -55,6 +56,6 @@ Column.prototype = {
       success: function(response){
         self.element.remove();
       }
-    });
+    })
  }
-};
+}
